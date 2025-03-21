@@ -7,19 +7,22 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+    <nav id="menu">
+        <ul>
+            <li><a href="./index.html">Introducción</a></li>
+            <li><a href="./historia.html">Historia</a></li>
+            <li><a href="./monumentos.html">Monumentos</a></li>
+            <li><a href="./persecusion.html">Persecución</a></li>
+            <li><a href="./memoria.html">Memoria</a></li>
+            <li><a href="./contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+    
     <header>
         <h1>Monumento a la Shoá</h1>
-        <nav>
-            <ul>
-                <li><a href="./index.html">Introducción</a></li>
-                <li><a href="./historia.html">Historia</a></li>
-                <li><a href="./monumentos.html">Monumentos</a></li>
-                <li><a href="./persecusion.html">Persecución</a></li>
-                <li><a href="./memoria.html">Memoria</a></li>
-                <li><a href="./contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
     </header>
+    
     <main>
         <section>
             <h2>Memoria y Resistencia</h2>
@@ -30,6 +33,7 @@
             <p>"Les enseñarás a tus hijos, y a los hijos de tus hijos…" es el compromiso de cada generación para preservar la memoria y evitar el olvido.</p>
         </section>
     </main>
+    
     <div class="imagen-container">
         <img src="ruta-de-la-imagen.jpg" alt="Descripción de la imagen">
         <p class="imagen-descripcion">Descripción breve de la imagen.</p>
@@ -38,5 +42,16 @@
     <footer>
         <p>&copy; 2025 Monumento a la Shoá</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            if (menu.style.left === '0px') {
+                menu.style.left = '-250px';
+            } else {
+                menu.style.left = '0px';
+            }
+        }
+    </script>
 </body>
 </html>

@@ -16,3 +16,19 @@ document.addEventListener("DOMContentLoaded", () => {
     carrusel.style.width = `${totalImagenes * 100}%`;
     carrusel.style.overflow = "hidden";
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const nav = document.querySelector("nav");
+    const toggleBtn = document.createElement("button");
+    toggleBtn.textContent = "☰";
+    toggleBtn.classList.add("nav-toggle");
+    document.body.appendChild(toggleBtn);
+
+    toggleBtn.addEventListener("click", function () {
+        if (nav.style.left === "0px") {
+            nav.style.left = "-250px";
+        } else {
+            nav.style.left = "0px";
+        }
+    });
+});
