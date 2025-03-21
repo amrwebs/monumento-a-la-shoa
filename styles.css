@@ -4,6 +4,11 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
 }
 
 header {
@@ -11,7 +16,8 @@ header {
     color: white;
     text-align: center;
     padding: 1em 0;
-    font-size: 1.5em;
+    font-size: 1.2em;
+    width: 100%;
 }
 
 nav {
@@ -32,15 +38,16 @@ nav ul {
 }
 
 nav ul li {
-    margin: 20px;
+    margin: 15px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    padding: 10px;
+    padding: 8px;
     display: block;
     transition: background 0.3s;
+    font-size: 0.9em;
 }
 
 nav ul li a:hover {
@@ -54,34 +61,30 @@ nav ul li a:hover {
     top: 10px;
     background: #1abc9c;
     color: white;
-    padding: 10px;
+    padding: 8px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     z-index: 1000;
+    font-size: 1em;
 }
 
 main {
-    padding: 20px;
-    text-align: center;
-    margin-left: 20px;
+    flex-grow: 1;
+    padding: 15px;
+    width: 90%;
+    max-width: 800px;
 }
 
 section {
     background: white;
-    padding: 20px;
-    margin: 20px auto;
-    width: 80%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 15px auto;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
-    background: #2c3e50;
-    color: white;
-    margin-top: 20px;
+    font-size: 0.9em;
 }
 
 .imagen-container {
@@ -92,7 +95,7 @@ footer {
     background: white;
     padding: 15px;
     margin: 20px auto;
-    width: 80%;
+    width: 90%;
     max-width: 600px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -100,9 +103,10 @@ footer {
 }
 
 .imagen-container img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    border-radius: 5px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 .imagen-descripcion {
@@ -113,13 +117,14 @@ footer {
 
 .carrusel-container {
     position: relative;
-    width: 90%;
+    width: 100%;
     max-width: 800px;
-    margin: auto;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
     background: white;
+    padding: 10px;
 }
 
 .carrusel {
@@ -129,50 +134,29 @@ footer {
 }
 
 .carrusel img {
-    min-width: 100%;
+    width: 100%;
     height: auto;
+    object-fit: cover;
     border-radius: 8px;
 }
 
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+    background: #2c3e50;
     color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 5px;
+    font-size: 0.9em;
+    margin-top: auto;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
-
-.prev:hover, .next:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-/* Estilos Responsivos */
 @media (max-width: 768px) {
-    .carrusel-container {
-        width: 100%;
+    .imagen-container {
+        width: 95%;
         max-width: 100%;
     }
-    .prev, .next {
-        padding: 5px;
-        font-size: 14px;
-    }
-    section, .imagen-container {
+    .carrusel-container {
         width: 95%;
-    }
-    nav {
-        width: 200px;
-    }
-    .nav-toggle {
-        left: 5px;
-        top: 5px;
-        padding: 8px;
+        max-width: 100%;
     }
 }
