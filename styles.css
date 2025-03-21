@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -9,8 +10,11 @@ body {
     align-items: center;
     text-align: center;
     min-height: 100vh;
+    overflow-x: hidden; /* Evita desplazamiento horizontal */
+    width: 100%;
 }
 
+/* Encabezado */
 header {
     background: #2c3e50;
     color: white;
@@ -20,6 +24,7 @@ header {
     width: 100%;
 }
 
+/* Navegación */
 nav {
     position: fixed;
     left: -250px;
@@ -71,10 +76,11 @@ nav ul li a:hover {
     font-size: 1.1em;
 }
 
+/* Contenido principal */
 main {
     flex-grow: 1;
     padding: 20px;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     display: flex;
     flex-direction: column;
@@ -82,11 +88,12 @@ main {
     justify-content: center;
 }
 
+/* Sección de contenido */
 section {
     background: white;
     padding: 20px;
     margin: 20px auto;
-    width: 100%;
+    width: 90%;
     max-width: 800px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -94,7 +101,7 @@ section {
     text-align: center;
 }
 
-/* Centrado de imágenes */
+/* Contenedor de imágenes */
 .imagen-container {
     display: flex;
     flex-direction: column;
@@ -103,7 +110,7 @@ section {
     background: white;
     padding: 15px;
     margin: 20px auto;
-    width: 100%;
+    width: 90%;
     max-width: 800px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -127,7 +134,7 @@ section {
 /* Carrusel */
 .carrusel-container {
     position: relative;
-    width: 100%;
+    width: 90%;
     max-width: 900px;
     overflow: hidden;
     border-radius: 8px;
@@ -149,7 +156,7 @@ section {
     width: 100%;
     max-width: 900px;
     height: auto;
-    max-height: 500px;
+    max-height: 400px;
     object-fit: contain;
     border-radius: 8px;
 }
@@ -217,6 +224,12 @@ footer {
         font-size: 16px;
         padding: 8px;
     }
+}
+
+/* Evitar movimientos indeseados */
+html, body {
+    overflow-x: hidden;
+    touch-action: pan-y;
 }
 
 @media (min-width: 1024px) {
