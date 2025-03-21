@@ -35,44 +35,36 @@
     </main>
     
     <div class="carrusel-container">
-        <div class="carrusel">
-            <img src="./memoria y resistencia/1.png" alt="Descripción de la imagen 1">
-            <img src="./memoria y resistencia/2.png">
-            <img src="./memoria y resistencia/3.png" alt="Descripción de la imagen 3">
-            <img src="./memoria y resistencia/4.png" alt="Descripción de la imagen 4">
-        </div>
-        <button class="prev" onclick="moverCarrusel(-1)">&#10094;</button>
-        <button class="next" onclick="moverCarrusel(1)">&#10095;</button>
-    </div>
-    
-    <footer>
-        <p>&copy; 2025 Monumento a la Shoá</p>
-    </footer>
+        <div class="carrusel-container">
+            <div class="carrusel">
+                <img src="./memoria y resistencia/1.png" alt="Imagen 1">
+                <img src="./memoria y resistencia/2.png" alt="Imagen 2">
+                <img src="./memoria y resistencia/3.png" alt="Imagen 3">
+                <img src="./memoria y resistencia/4.png" alt="Imagen 4">
+            </div>
+            <button class="carrusel-btn izquierda">❮</button>
+            <button class="carrusel-btn derecha">❯</button>
+            <div class="indicadores"></div>
+            
+            <footer>
+                <p>&copy; 2025 Monumento a la Shoá</p>
+            </footer>
+        
+            <script src="carrusel.js"></script>
+            <script>
+                function toggleMenu() {
+                    const menu = document.getElementById('menu');
+                    if (menu.style.left === '0px') {
+                        menu.style.left = '-250px';
+                    } else {
+                        menu.style.left = '0px';
+                    }
+                }
+            </script>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            if (menu.style.left === '0px') {
-                menu.style.left = '-250px';
-            } else {
-                menu.style.left = '0px';
-            }
-        }
-    </script>
+
 
 <script src="carrusel.js"></script>
-<script>
-    function toggleMenu() {
-        const menu = document.getElementById('menu');
-        if (menu.style.left === '0px') {
-            menu.style.left = '-250px';
-        } else {
-            menu.style.left = '0px';
-        }
-    }
-</script>
 
-
-      
 </body>
 </html>
