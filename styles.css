@@ -27,8 +27,9 @@ nav {
     height: 100%;
     width: 250px;
     background: #34495e;
-    transition: left 0.3s;
+    transition: left 0.3s ease-in-out;
     padding-top: 20px;
+    z-index: 999;
 }
 
 nav ul {
@@ -44,10 +45,10 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
-    padding: 8px;
+    padding: 10px;
     display: block;
     transition: background 0.3s;
-    font-size: 0.9em;
+    font-size: 1em;
 }
 
 nav ul li a:hover {
@@ -61,30 +62,30 @@ nav ul li a:hover {
     top: 10px;
     background: #1abc9c;
     color: white;
-    padding: 8px;
+    padding: 10px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     z-index: 1000;
-    font-size: 1em;
+    font-size: 1.1em;
 }
 
 main {
     flex-grow: 1;
-    padding: 15px;
+    padding: 20px;
     width: 90%;
-    max-width: 800px;
+    max-width: 1200px;
 }
 
 section {
     background: white;
-    padding: 15px;
-    margin: 15px auto;
-    width: 90%;
-    max-width: 600px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 800px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    font-size: 0.9em;
+    font-size: 1em;
 }
 
 .imagen-container {
@@ -95,8 +96,8 @@ section {
     background: white;
     padding: 15px;
     margin: 20px auto;
-    width: 90%;
-    max-width: 600px;
+    width: 100%;
+    max-width: 800px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: center;
@@ -104,21 +105,22 @@ section {
 
 .imagen-container img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    max-height: 500px;
+    object-fit: contain;
     border-radius: 8px;
 }
 
 .imagen-descripcion {
-    font-size: 14px;
+    font-size: 16px;
     color: #555;
     margin-top: 10px;
 }
 
+/* Carrusel */
 .carrusel-container {
     position: relative;
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -135,28 +137,78 @@ section {
 
 .carrusel img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    max-height: 500px;
+    object-fit: contain;
     border-radius: 8px;
 }
 
+/* Botones del carrusel */
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.carrusel-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carrusel-btn.izquierda {
+    left: 10px;
+}
+
+.carrusel-btn.derecha {
+    right: 10px;
+}
+
+/* Pie de página */
 footer {
     width: 100%;
     text-align: center;
-    padding: 8px;
+    padding: 10px;
     background: #2c3e50;
     color: white;
-    font-size: 0.9em;
+    font-size: 1em;
     margin-top: auto;
 }
 
+/* Responsividad */
 @media (max-width: 768px) {
+    nav {
+        width: 200px;
+    }
+
     .imagen-container {
         width: 95%;
         max-width: 100%;
     }
+
     .carrusel-container {
         width: 95%;
         max-width: 100%;
+    }
+
+    .carrusel img {
+        height: auto;
+        max-height: 300px;
+    }
+
+    .carrusel-btn {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carrusel img {
+        max-height: 500px;
     }
 }

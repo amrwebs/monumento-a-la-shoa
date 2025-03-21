@@ -34,9 +34,15 @@
         </section>
     </main>
     
-    <div class="imagen-container">
-        <img src="ruta-de-la-imagen.jpg" alt="Descripción de la imagen">
-        <p class="imagen-descripcion">Descripción breve de la imagen.</p>
+    <div class="carrusel-container">
+        <div class="carrusel">
+            <img src="./memoria y resistencia/1.png" alt="Descripción de la imagen 1">
+            <img src="./memoria y resistencia/2.png">
+            <img src="./memoria y resistencia/3.png" alt="Descripción de la imagen 3">
+            <img src="./memoria y resistencia/4.png" alt="Descripción de la imagen 4">
+        </div>
+        <button class="prev" onclick="moverCarrusel(-1)">&#10094;</button>
+        <button class="next" onclick="moverCarrusel(1)">&#10095;</button>
     </div>
     
     <footer>
@@ -53,5 +59,20 @@
             }
         }
     </script>
+
+<script src="carrusel.js"></script>
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        if (menu.style.left === '0px') {
+            menu.style.left = '-250px';
+        } else {
+            menu.style.left = '0px';
+        }
+    }
+</script>
+
+
+      
 </body>
 </html>
