@@ -101,6 +101,35 @@ section {
     text-align: center;
 }
 
+/* Estilos generales para imágenes */
+img {
+    width: 100%;
+    max-width: 900px; /* Igual que el carrusel */
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.imagen-container {
+    width: 90%;
+    max-width: 900px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    text-align: center;
+}
+
+.imagen-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Carrusel */
 .carrusel-container {
     position: relative;
     width: 90%;
@@ -171,7 +200,6 @@ section {
 .indicadores .activo {
     opacity: 1;
 }
-
 
 /* Pie de página */
 footer {
