@@ -10,7 +10,7 @@ body {
     align-items: center;
     text-align: center;
     min-height: 100vh;
-    overflow-x: hidden; /* Evita desplazamiento horizontal */
+    overflow-x: hidden;
     width: 100%;
 }
 
@@ -88,45 +88,56 @@ main {
     justify-content: center;
 }
 
-/* Sección de contenido */
+/* Sección de contenido con imágenes al costado */
 section {
     background: white;
     padding: 20px;
     margin: 20px auto;
     width: 90%;
-    max-width: 800px;
+    max-width: 1000px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     font-size: 1em;
-    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-/* Estilos generales para imágenes */
-img {
-    width: 100%;
-    max-width: 900px; /* Igual que el carrusel */
-    height: auto;
-    display: block;
-    margin: 10px auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+/* Texto a la izquierda */
+.texto {
+    flex: 2;
+    min-width: 300px;
+    text-align: justify;
 }
 
+/* Imagen a la derecha */
 .imagen-container {
-    width: 90%;
-    max-width: 900px;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    margin: 20px auto;
-    text-align: center;
+    flex: 1;
+    max-width: 40%;
+    min-width: 550px;
+    text-align: right;
 }
 
 .imagen-container img {
     width: 100%;
     height: auto;
-    object-fit: cover;
     border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .imagen-container {
+        max-width: 100%;
+        text-align: center;
+    }
 }
 
 /* Carrusel */
@@ -214,28 +225,13 @@ footer {
 
 /* Responsividad */
 @media (max-width: 768px) {
-    nav {
-        width: 200px;
+    section {
+        flex-direction: column;
+        text-align: center;
     }
 
     .imagen-container {
-        width: 95%;
         max-width: 100%;
-    }
-
-    .carrusel-container {
-        width: 95%;
-        max-width: 100%;
-    }
-
-    .carrusel img {
-        height: auto;
-        max-height: 300px;
-    }
-
-    .carrusel-btn {
-        font-size: 16px;
-        padding: 8px;
     }
 }
 
@@ -243,10 +239,4 @@ footer {
 html, body {
     overflow-x: hidden;
     touch-action: pan-y;
-}
-
-@media (min-width: 1024px) {
-    .carrusel img {
-        max-height: 500px;
-    }
 }

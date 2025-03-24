@@ -7,37 +7,56 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Botón para abrir el menú de navegación -->
     <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+    
+    <!-- Menú de navegación -->
     <nav id="menu">
         <ul>
             <li><a href="./index.html">Introducción</a></li>
             <li><a href="./historia.html">Historia</a></li>
             <li><a href="./monumentos.html">Monumentos</a></li>
-            <li><a href="./persecusion.html">Persecución</a></li>
+            <li><a href="./persecucion.html">Persecución</a></li>
             <li><a href="./memoria.html">Memoria</a></li>
             <li><a href="./contacto.html">Contacto</a></li>
         </ul>
     </nav>
     
+    <!-- Encabezado -->
     <header>
         <h1>Monumento a la Shoá</h1>
     </header>
     
+    <!-- Contenido principal -->
     <main>
+        <!-- Sección de introducción con texto -->
         <section>
-            <h2>Introducción</h2>
-            <p>El pueblo judío fue humillado, perseguido y desterrado. Pero, como esta Menorá (candelabro), siempre surgirá entre los escombros para seguir creciendo y mostrarse orgulloso ante el mundo.</p>
-            <p>En homenaje a las inocentes víctimas del Holocausto (Shoa), la Asociación Israelita de Villaguay hizo construir este monumento, ya que la Menorá fue el primer símbolo empotrado en el Templo de Jerusalén.</p>
-            <p>Según algunos pensadores, sus brazos representan los días en que Dios creó al mundo, estando en el centro el Shabat (Sábado), día de descanso y el más sagrado para la religión judía.</p>
-            <p>Los brazos se elevan para brindarse al mundo, el resplandor de su luz es universal y con ella nos sentimos protegidos.</p>
+        
+
+        <!-- Sección con texto a la izquierda y una imagen a la derecha -->
+        <section>
+            <div class="texto">
+                <h2>Introducción</h2>
+                <p>El Monumento a la Shoá, creado por la Asociación Israelita de Villaguay, rinde homenaje a las víctimas inocentes del Holocausto (Shoá). Este monumento tiene como símbolo central la Menorá, un candelabro judío que representa la resiliencia del pueblo judío, que, a pesar de haber sido humillado, perseguido y desterrado, siempre surge entre los escombros para mostrarse orgulloso ante el mundo.</p>
+
+<p>La Menorá, empotrada originalmente en el Templo de Jerusalén, simboliza la creación divina, con sus brazos representando los días en que Dios creó el mundo y el Shabat (sábado), el día más sagrado del judaísmo, en el centro.</p>
+
+<p>Sus brazos elevados brindan una luz universal que protege y guía a la humanidad. En la base del monumento, las piedras simbolizan los obstáculos enfrentados, pero la Menorá emerge radiante como ejemplo de lucha, tenacidad y perseverancia.</p>
+
+            </div>
+            <div class="imagen-container">
+                <img src="./images/1.png" alt="Descripción de la imagen">
+            </div>
         </section>
     </main>
-    
+
+    <!-- Pie de página -->
     <footer>
         <p>&copy; 2025 Monumento a la Shoá</p>
     </footer>
 
     <script>
+        // Función para abrir y cerrar el menú lateral
         function toggleMenu() {
             const menu = document.getElementById('menu');
             if (menu.style.left === '0px') {
