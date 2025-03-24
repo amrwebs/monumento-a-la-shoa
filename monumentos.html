@@ -5,68 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monumentos - Monumento a la Shoá</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> <!-- Fuente Roboto -->
 </head>
 <body>
+    <!-- Botón para abrir el menú de navegación -->
     <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+    
+    <!-- Menú de navegación -->
     <nav id="menu">
         <ul>
             <li><a href="./index.html">Introducción</a></li>
             <li><a href="./historia.html">Historia</a></li>
             <li><a href="./monumentos.html">Monumentos</a></li>
-            <li><a href="./persecusion.html">Persecución</a></li>
+            <li><a href="./persecusion.html">Persecución</a></li> <!-- Corregido "persecusion" -->
             <li><a href="./memoria.html">Memoria</a></li>
             <li><a href="./contacto.html">Contacto</a></li>
         </ul>
     </nav>
     
+    <!-- Encabezado -->
     <header>
         <h1>Monumento a la Shoá</h1>
     </header>
     
+    <!-- Contenido principal -->
     <main>
-        <section>
-            <h2>Monumentos</h2>
-            <p>A lo largo de la historia, diversos monumentos han sido testigos de la presencia judía y de su lucha por la memoria.</p>
-            <ul>
-                <li><strong>Arco de Tito en Roma:</strong> Representa el saqueo del Templo de Jerusalén y el traslado de la Menorá.</li>
-                <li><strong>Biblioteca de Éfeso, Turquía:</strong> En sus muros se encuentra grabada una Menorá, señal de la presencia hebrea.</li>
-                <li><strong>Columna en Albania:</strong> Una Menorá grabada en piedra es testimonio de la cultura judía en la región.</li>
-                <li><strong>Sinagoga en Curazao:</strong> Primera sinagoga de América, con un piso de arena en recuerdo de la persecución sufrida durante la Inquisición.</li>
-                <li><strong>Menorá en el Parlamento israelí (Kneset):</strong> Simboliza el regreso del pueblo judío y su identidad nacional.</li>
-            </ul>
+        <section class="monumentos">
+            <div class="texto">
+                <h2>Monumentos</h2>
+                <p>A lo largo de la historia, diversos monumentos han sido testigos de la presencia judía y de su lucha por la memoria.</p>
+                <ul>
+                    <li><strong>Arco de Tito en Roma:</strong> Representa el saqueo del Templo de Jerusalén y el traslado de la Menorá.</li>
+                    <li><strong>Biblioteca de Éfeso, Turquía:</strong> En sus muros se encuentra grabada una Menorá, señal de la presencia hebrea.</li>
+                    <li><strong>Columna en Albania:</strong> Una Menorá grabada en piedra es testimonio de la cultura judía en la región.</li>
+                    <li><strong>Sinagoga en Curazao:</strong> Primera sinagoga de América, con un piso de arena en recuerdo de la persecución sufrida durante la Inquisición.</li>
+                    <li><strong>Menorá en el Parlamento israelí (Kneset):</strong> Simboliza el regreso del pueblo judío y su identidad nacional.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Carrusel -->
+        <section class="carrusel-section">
+            <div class="carrusel-container">
+                <div class="carrusel">
+                    <img src="./images/a.png" alt="Arco de Tito en Roma">
+                    <img src="./images/b.png" alt="Biblioteca de Éfeso, Turquía">
+                    <img src="./images/c.png" alt="Columna en Albania">
+                    <img src="./images/d.png" alt="Sinagoga en Curazao">
+                    <img src="./images/de.png" alt="Menorá en el Kneset">
+                    <img src="./images/fff.png" alt="Monumento 6">
+                    <img src="./images/ggg.png" alt="Monumento 7">
+                    <img src="./images/h.png" alt="Monumento 8">
+                </div>
+                <button class="carrusel-btn izquierda">❮</button>
+                <button class="carrusel-btn derecha">❯</button>
+                <div class="indicadores"></div>
+            </div>
         </section>
     </main>
     
-    <div class="carrusel-container">
-        <div class="carrusel">
-            <img src="./images/a.png" alt="Imagen 1">
-            <img src="./images/b.png" alt="Imagen 2">
-            <img src="./images/c.png" alt="Imagen 3">
-            <img src="./images/d.png" alt="Imagen 4">
-            <img src="./images/de.png" alt="Imagen 5">
-            <img src="./images/fff.png" alt="Imagen 6">
-            <img src="./images/ggg.png" alt="Imagen 7">
-            <img src="./images/h.png" alt="Imagen 8">
-        </div>
-        <button class="carrusel-btn izquierda">❮</button>
-        <button class="carrusel-btn derecha">❯</button>
-        <div class="indicadores"></div>
-    </div>
-    
+    <!-- Pie de página -->
     <footer>
-        <p>&copy; 2025 Monumento a la Shoá</p>
+        <p>© 2025 Monumento a la Shoá</p>
     </footer>
 
-    <script src="carrusel.js"></script>
+    <!-- Scripts -->
     <script>
+        // Función para abrir y cerrar el menú desde arriba
         function toggleMenu() {
             const menu = document.getElementById('menu');
-            if (menu.style.left === '0px') {
-                menu.style.left = '-250px';
+            if (menu.style.top === '0px') {
+                menu.style.top = '-100%';
             } else {
-                menu.style.left = '0px';
+                menu.style.top = '0px';
             }
         }
     </script>
+    <script src="carrusel.js"></script>
 </body>
 </html>

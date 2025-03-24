@@ -2,12 +2,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const carrusel = document.querySelector(".carrusel");
     const imagenes = carrusel.querySelectorAll("img");
     const totalImagenes = imagenes.length;
-    let indice = 0;
-
-    // Crear indicadores
     const indicadoresContainer = document.querySelector(".indicadores");
-    indicadoresContainer.innerHTML = ""; // Limpiar indicadores previos
+    let indice = 0;
+    let autoSlide;
+    let isAnimating = false; // Evitar clics durante animaciones
 
+    if (!carrusel || !indicadoresContainer || totalImagenes === 0) {
+        console.error("Faltan elementos necesarios para el carrusel.");
+        return;
+    }
+
+    // Crear indicadores dinámicamente
+    indicadoresContainer.innerHTML = "";
     imagenes.forEach((_, i) => {
         const indicador = document.createElement("div");
         indicador.dataset.index = i;
@@ -17,42 +23,77 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const indicadores = document.querySelectorAll(".indicadores div");
 
+    // Función para animar el carrusel con fade y desplazamiento suave
     function actualizarCarrusel() {
-        carrusel.style.transform = `translateX(${-indice * 100}%)`;
-        indicadores.forEach((dot, i) => dot.classList.toggle("activo", i === indice));
+        if (isAnimating) return;
+        isAnimating = true;
+
+        carrusel.style.transition = "transform 0.6s ease-in-out, opacity 0.4s ease";
+        carrusel.style.opacity = "0"; // Desvanecimiento inicial
+
+        setTimeout(() => {
+            carrusel.style.transform = `translateX(${-indice * 100}%)`;
+            carrusel.style.opacity = "1"; // Reaparece suavemente
+            indicadores.forEach((dot, i) => dot.classList.toggle("activo", i === indice));
+            isAnimating = false;
+        }, 200); // Retraso para el fade
     }
 
+    // Mover el carrusel en una dirección
     function moverCarrusel(direccion) {
         indice = (indice + direccion + totalImagenes) % totalImagenes;
         actualizarCarrusel();
     }
 
-    // Auto-slide cada 5 segundos
-    let autoSlide = setInterval(() => moverCarrusel(1), 5000);
-
-    // Detener el auto-slide al interactuar
-    function reiniciarAutoSlide() {
+    // Iniciar auto-slide con intervalo más elegante
+    function iniciarAutoSlide() {
         clearInterval(autoSlide);
-        autoSlide = setInterval(() => moverCarrusel(1), 5000);
+        autoSlide = setInterval(() => moverCarrusel(1), 6000); // Intervalo más largo para apreciar animaciones
     }
 
-    // Eventos de botones
-    document.querySelector(".carrusel-btn.izquierda").addEventListener("click", () => {
-        moverCarrusel(-1);
-        reiniciarAutoSlide();
-    });
+    iniciarAutoSlide();
 
-    document.querySelector(".carrusel-btn.derecha").addEventListener("click", () => {
-        moverCarrusel(1);
-        reiniciarAutoSlide();
-    });
+    // Botones de navegación
+    const btnIzquierda = document.querySelector(".carrusel-btn.izquierda");
+    const btnDerecha = document.querySelector(".carrusel-btn.derecha");
+
+    if (btnIzquierda) {
+        btnIzquierda.addEventListener("click", () => {
+            if (!isAnimating) {
+                moverCarrusel(-1);
+                iniciarAutoSlide();
+            }
+        });
+    }
+
+    if (btnDerecha) {
+        btnDerecha.addEventListener("click", () => {
+            if (!isAnimating) {
+                moverCarrusel(1);
+                iniciarAutoSlide();
+            }
+        });
+    }
 
     // Control por indicadores
-    indicadores.forEach(dot => {
+    indicadores.forEach((dot) => {
         dot.addEventListener("click", function () {
-            indice = parseInt(this.dataset.index);
-            actualizarCarrusel();
-            reiniciarAutoSlide();
+            if (!isAnimating) {
+                indice = parseInt(this.dataset.index, 10);
+                actualizarCarrusel();
+                iniciarAutoSlide();
+            }
         });
+    });
+
+    // Pausar y reanudar auto-slide con hover
+    carrusel.addEventListener("mouseenter", () => {
+        clearInterval(autoSlide);
+        carrusel.style.opacity = "0.95"; // Ligero resalte al pausar
+    });
+
+    carrusel.addEventListener("mouseleave", () => {
+        carrusel.style.opacity = "1";
+        iniciarAutoSlide();
     });
 });
