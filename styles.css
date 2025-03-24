@@ -136,14 +136,23 @@ section {
 @media (max-width: 768px) {
     section {
         flex-direction: column;
-        text-align: center; /* Asegura que el texto y las imágenes estén centrados en pantallas pequeñas */
+        text-align: center;
     }
 
     .imagen-container {
-        max-width: 100%;
-        text-align: center; /* Centra la imagen en la vista móvil */
+        max-width: 100%; /* Asegura que la imagen ocupe todo el ancho disponible en dispositivos pequeños */
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imagen-container img {
+        max-width: 90%; /* Ajusta la imagen para que no ocupe más del 90% del ancho en pantallas pequeñas */
+        height: auto; /* Mantén la relación de aspecto sin distorsionar la imagen */
     }
 }
+
 
 /* Carrusel */
 .carrusel-container {
