@@ -34,13 +34,10 @@
             <div class="texto">
                 <h2>Monumentos</h2>
                 <p>A lo largo de la historia, diversos monumentos han sido testigos de la presencia judía y de su lucha por la memoria.</p>
-                <ul>
-                    <li><strong>Arco de Tito en Roma:</strong> Representa el saqueo del Templo de Jerusalén y el traslado de la Menorá.</li>
-                    <li><strong>Biblioteca de Éfeso, Turquía:</strong> En sus muros se encuentra grabada una Menorá, señal de la presencia hebrea.</li>
-                    <li><strong>Columna en Albania:</strong> Una Menorá grabada en piedra es testimonio de la cultura judía en la región.</li>
-                    <li><strong>Sinagoga en Curazao:</strong> Primera sinagoga de América, con un piso de arena en recuerdo de la persecución sufrida durante la Inquisición.</li>
-                    <li><strong>Menorá en el Parlamento israelí (Kneset):</strong> Simboliza el regreso del pueblo judío y su identidad nacional.</li>
-                </ul>
+                <p>El Monumento a la Shoá en Villaguay destaca la Menorá como símbolo de la resiliencia judía, emergiendo entre piedras que representan las dificultades superadas. <p> 
+                <p>Este candelabro tiene una rica historia en otros monumentos: en el Arco de Tito en Roma se muestra su saqueo del Templo de Jerusalén; en Éfeso (Turquía), un dibujo de una Menorá en la biblioteca indica la presencia de una comunidad judía; en Albania, una Menorá aparece en una antigua columna; y en Curazao, una Menorá adorna la primera sinagoga de América.<p>
+                <p>En el Estado de Israel, la Menorá es parte central del escudo nacional y luce en el Parque de las Rosas frente al Parlamento (Kneset), con tallados en sus seis brazos que narran las penurias del exilio y el brazo central que refleja el regreso a la Tierra Prometida.<p> 
+                <p>En Villaguay, este monumento permite conocer y apreciar estos símbolos hebraicos, uniendo el pasado y el presente del pueblo judío.<p>
             </div>
         </section>
 
@@ -71,13 +68,20 @@
 
     <!-- Scripts -->
     <script>
-        // Función para abrir y cerrar el menú desde arriba
+        // Función para abrir y cerrar el menú con animación suave
         function toggleMenu() {
             const menu = document.getElementById('menu');
-            if (menu.style.top === '0px') {
+            const isOpen = menu.style.top === '0px';
+    
+            menu.style.transition = 'top 0.5s ease-in-out, opacity 0.3s ease';
+            menu.style.opacity = isOpen ? '1' : '0'; // Desvanecimiento inicial
+    
+            if (isOpen) {
                 menu.style.top = '-100%';
+                setTimeout(() => menu.style.opacity = '0', 300); // Fade out después de subir
             } else {
                 menu.style.top = '0px';
+                setTimeout(() => menu.style.opacity = '1', 100); // Fade in después de bajar
             }
         }
     </script>

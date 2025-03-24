@@ -33,10 +33,10 @@
         <section class="historia">
             <div class="texto">
                 <h2>Historia</h2>
-                <p>En homenaje a las inocentes víctimas del Holocausto (Shoá), la Asociación Israelita de Villaguay hizo construir este monumento.</p>
-                <p>La Menorá fue el primer símbolo empotrado en el Templo de Jerusalén. Según algunos pensadores, sus brazos representan los días en que Dios creó el mundo, estando en el centro el Shabat (Sábado), día de descanso y el más sagrado para la religión judía.</p>
-                <p>En los escritos bíblicos del Antiguo Testamento, Dios entregó a Moisés una Menorá cincelada en oro puro para que sea colocada en el Tabernáculo y luego en el Gran Templo de Jerusalén. En el año 70 d.C., el Templo fue destruido y saqueado por los romanos. La Menorá desaparece y hasta el presente no se han encontrado vestigios que indiquen el destino de este candelabro original.</p>
-                <p>Sin embargo, la prueba del saqueo quedó grabada en un relieve del Arco de Tito en Roma, que muestra al pueblo su triunfo.</p>
+                <p>La historia del pueblo judío está marcada por siglos de adversidad y resistencia.<p></p>
+                <p> Desde tiempos bíblicos, según el Antiguo Testamento, Dios entregó a Moisés una Menorá de oro puro para el Tabernáculo, que luego se colocó en el Gran Templo de Jerusalén. <p>   
+                <p> En el año 70 d.C., los romanos destruyeron el Templo y saquearon la Menorá original, cuya imagen quedó grabada en el Arco de Tito en Roma. A lo largo de los siglos, los judíos enfrentaron persecuciones en Europa del Este, Central y Medio Oriente, viéndose obligados a abandonar sus tierras en busca de lugares más seguros. <p>
+                <p> En el siglo XVII, judíos sefaradíes llegaron a Curazao desde España, Portugal, Holanda y Brasil, trayendo una Menorá y 12 Libros de Torá para fundar la primera sinagoga de América, con un piso de arena que recuerda las prácticas secretas durante la Inquisición. Más tarde, a fines del siglo XIX, los pogromos en la Rusia zarista y la ayuda del Barón Mauricio de Hirsch y Clara Bischoffsheim permitieron a muchas familias judías emigrar a Argentina, estableciendo colonias agrícolas en provincias como Buenos Aires, Santa Fe, Chaco y Entre Ríos, incluyendo Villaguay. <p>
             </div>
             <div class="imagen-container">
                 <img src="./images/b.png" alt="Relieve del Arco de Tito en Roma">
@@ -51,13 +51,20 @@
     </footer>
 
     <script>
-        // Función para abrir y cerrar el menú desde arriba
+        // Función para abrir y cerrar el menú con animación suave
         function toggleMenu() {
             const menu = document.getElementById('menu');
-            if (menu.style.top === '0px') {
+            const isOpen = menu.style.top === '0px';
+    
+            menu.style.transition = 'top 0.5s ease-in-out, opacity 0.3s ease';
+            menu.style.opacity = isOpen ? '1' : '0'; // Desvanecimiento inicial
+    
+            if (isOpen) {
                 menu.style.top = '-100%';
+                setTimeout(() => menu.style.opacity = '0', 300); // Fade out después de subir
             } else {
                 menu.style.top = '0px';
+                setTimeout(() => menu.style.opacity = '1', 100); // Fade in después de bajar
             }
         }
     </script>

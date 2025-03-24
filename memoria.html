@@ -33,11 +33,12 @@
         <section class="memoria">
             <div class="texto">
                 <h2>Memoria y Resistencia</h2>
-                <p>A pesar de las adversidades, el pueblo judío ha mantenido su cultura y tradiciones vivas a lo largo del tiempo.</p>
-                <p>El 27 de enero de 1945, las tropas aliadas liberaron el campo de concentración de Auschwitz, marcando el fin de uno de los episodios más oscuros de la historia.</p>
-                <p>En 1948, se creó el Estado de Israel como un refugio para los sobrevivientes del Holocausto y para garantizar que el pueblo judío nunca más fuera sometido a tal persecución.</p>
-                <p>El 7 de octubre de 2023, un nuevo ataque recordó al mundo el sufrimiento del pueblo judío, reforzando la importancia de la memoria y la educación para evitar que la historia se repita.</p>
-                <p>"Les enseñarás a tus hijos, y a los hijos de tus hijos…" es el compromiso de cada generación para preservar la memoria y evitar el olvido.</p>
+                <p>La memoria del pueblo judío se mantiene viva a través de símbolos y actos de conmemoración.<p>
+                <p>El Monumento a la Shoá en Villaguay, con su Menorá surgiendo entre escombros, refleja la capacidad de superación y el orgullo de ser el "Pueblo Elegido".<p>
+                <p>La frase "Les enseñarás a tus hijos, y a los hijos de tus hijos…" grabada detrás de la Menorá simboliza el compromiso de transmitir la fe y la historia judía, incluso en la adversidad.<p>
+                <p>La creación del Estado de Israel en 1948, liderada por David Ben Gurion —cuyo nombre lleva una calle en Villaguay—, marcó un hito de esperanza.<p>
+                <p>A pesar de su corta historia, Israel ha contribuido al mundo con avances como el riego por goteo, la píldora-cámara y la Cúpula de Hierro, ganando reconocimiento global.<p>
+                <p>La Asociación Israelita Argentina de Villaguay entrega este monumento como un pedido de paz y fraternidad, para que la luz de la Menorá guíe a la humanidad hacia un futuro mejor, recordando el Holocausto y eventos recientes como el del 7 de octubre de 2023.<p>
             </div>
         </section>
 
@@ -64,13 +65,20 @@
 
     <!-- Scripts -->
     <script>
-        // Función para abrir y cerrar el menú desde arriba
+        // Función para abrir y cerrar el menú con animación suave
         function toggleMenu() {
             const menu = document.getElementById('menu');
-            if (menu.style.top === '0px') {
+            const isOpen = menu.style.top === '0px';
+    
+            menu.style.transition = 'top 0.5s ease-in-out, opacity 0.3s ease';
+            menu.style.opacity = isOpen ? '1' : '0'; // Desvanecimiento inicial
+    
+            if (isOpen) {
                 menu.style.top = '-100%';
+                setTimeout(() => menu.style.opacity = '0', 300); // Fade out después de subir
             } else {
                 menu.style.top = '0px';
+                setTimeout(() => menu.style.opacity = '1', 100); // Fade in después de bajar
             }
         }
     </script>
