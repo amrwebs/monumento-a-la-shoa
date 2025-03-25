@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> <!-- Fuente Roboto -->
     <title>Introducción - Monumento a la Shoá</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Botón para abrir el menú de navegación -->
     <button class="nav-toggle" onclick="toggleMenu()">☰</button>
     
-    <!-- Menú de navegación -->
     <nav id="menu">
         <ul>
             <li><a href="./index.html">Introducción</a></li>
@@ -23,49 +21,71 @@
         </ul>
     </nav>
     
-    <!-- Encabezado -->
     <header>
         <h1>Monumento a la Shoá</h1>
     </header>
     
-    <!-- Contenido principal -->
     <main>
-        <!-- Sección con texto e imagen -->
-        <section class="intro">
-            <div class="texto">
-                <h2>Introducción</h2>
-                <p>El Monumento a la Shoá, creado por la Asociación Israelita de Villaguay, rinde homenaje a las víctimas inocentes del Holocausto (Shoá). Este monumento tiene como símbolo central la Menorá, un candelabro judío que representa la resiliencia del pueblo judío, que, a pesar de haber sido humillado, perseguido y desterrado, siempre surge entre los escombros para mostrarse orgulloso ante el mundo.</p>
-                <p>La Menorá, empotrada originalmente en el Templo de Jerusalén, simboliza la creación divina, con sus brazos representando los días en que Dios creó el mundo y el Shabat (sábado), el día más sagrado del judaísmo, en el centro.</p>
-                <p>Sus brazos elevados brindan una luz universal que protege y guía a la humanidad. En la base del monumento, las piedras simbolizan los obstáculos enfrentados, pero la Menorá emerge radiante como ejemplo de lucha, tenacidad y perseverancia.</p>
-            </div>
-            <div class="imagen-container">
-                <img src="./images/1.png" alt="Monumento a la Shoá - Menorá">
-            </div>
+        <section class="index">
+            <section class="contenedor-flex">
+                <div class="texto">
+                    <h2>Introducción</h2>
+                    <p>El Monumento a la Shoá, creado por la Asociación Israelita de Villaguay, rinde homenaje a las víctimas inocentes del Holocausto (Shoá). Este monumento tiene como símbolo central la Menorá, un candelabro judío que representa la resiliencia del pueblo judío, que, a pesar de haber sido humillado, perseguido y desterrado, siempre surge entre los escombros para mostrarse orgulloso ante el mundo.</p>
+
+                    <p>La Menorá, empotrada originalmente en el Templo de Jerusalén, simboliza la creación divina, con sus brazos representando los días en que Dios creó el mundo y el Shabat (sábado), el día más sagrado del judaísmo, en el centro.</p>
+        
+                    <p>Sus brazos elevados brindan una luz universal que protege y guía a la humanidad. En la base del monumento, las piedras simbolizan los obstáculos enfrentados, pero la Menorá emerge radiante como ejemplo de lucha, tenacidad y perseverancia.</p>
+                </div>
+                <div class="galeria">
+                    <div class="imagen"><img src="./images/5.png" alt="Descripción" onclick="verImagen(this)"></div>
+                    <div class="imagen"><img src="./images/6.png" alt="Descripción" onclick="verImagen(this)"></div>
+                </div>
+            </section>
         </section>
     </main>
-
-    <!-- Pie de página -->
+    
+    <div id="modalImagen" class="modal" onclick="cerrarImagen()">
+        <img id="imagenAmpliada" class="modal-contenido">
+    </div>
+    
     <footer>
         <p>© 2025 Monumento a la Shoá</p>
     </footer>
-
+    
     <script>
-        // Función para abrir y cerrar el menú con animación suave
         function toggleMenu() {
             const menu = document.getElementById('menu');
-            const isOpen = menu.style.top === '0px';
-    
-            menu.style.transition = 'top 0.5s ease-in-out, opacity 0.3s ease';
-            menu.style.opacity = isOpen ? '1' : '0'; // Desvanecimiento inicial
-    
-            if (isOpen) {
-                menu.style.top = '-100%';
-                setTimeout(() => menu.style.opacity = '0', 300); // Fade out después de subir
-            } else {
-                menu.style.top = '0px';
-                setTimeout(() => menu.style.opacity = '1', 100); // Fade in después de bajar
-            }
+            menu.style.top = menu.style.top === '0px' ? '-100%' : '0px';
+        }
+
+        function verImagen(img) {
+            document.getElementById("imagenAmpliada").src = img.src;
+            document.getElementById("modalImagen").style.display = "flex";
+        }
+
+        function cerrarImagen() {
+            document.getElementById("modalImagen").style.display = "none";
         }
     </script>
+    
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-contenido {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+    </style>
 </body>
 </html>

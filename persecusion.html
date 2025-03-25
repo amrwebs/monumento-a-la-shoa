@@ -17,7 +17,7 @@
             <li><a href="./index.html">Introducción</a></li>
             <li><a href="./historia.html">Historia</a></li>
             <li><a href="./monumentos.html">Monumentos</a></li>
-            <li><a href="./persecusion.html">Persecución</a></li> <!-- Corregido "persecusion" -->
+            <li><a href="./persecusion.html">Persecución</a></li> 
             <li><a href="./memoria.html">Memoria</a></li>
             <li><a href="./contacto.html">Contacto</a></li>
         </ul>
@@ -30,40 +30,66 @@
     
     <!-- Contenido principal -->
     <main>
-        <section class="persecucion">
-            <div class="texto">
-                <h2>Persecución</h2>
-                <p>El pueblo judío ha sufrido persecuciones a lo largo de su historia. Desde tiempos remotos, las comunidades en Europa del Este, Central y Medio Oriente fueron atacadas y despojadas de sus tierras.<p> 
-                <p>A fines del siglo XIX, en la Rusia zarista, los pogromos organizados por el gobierno destruyeron aldeas judías en Ucrania, Moldavia, Lituania y Polonia, prohibiendo a los judíos poseer tierras o estudiar con otros niños. Sin embargo, la persecución alcanzó su punto más brutal con el Holocausto.<p>
-                <p>Desde 1933, el régimen nazi en Alemania implementó un plan sistemático de exterminio, reclutando incluso a niños para su "solución final". Esta maquinaria infernal, documentada minuciosamente, asesinó a seis millones de judíos, gitanos y discapacitados en ghettos y campos como Auschwitz, liberado en 1945 con solo 7,000 sobrevivientes.<p> 
-                <p>Más recientemente, el ataque del 7 de octubre de 2023 revivió el horror de estas atrocidades, afectando a familias y jóvenes en Israel. A pesar de todo, el pueblo judío mantuvo su fe y tradiciones sin recurrir a las armas, transmitiéndolas de generación en generación.<p>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Pie de página -->
-    <footer>
-        <p>© 2025 Monumento a la Shoá</p>
-    </footer>
+        <section class="persecusion">
+                <section class="contenedor-flex">
+                    <div class="texto">
+                        <h2>Persecución</h2>
+                        <p>El pueblo judío ha sufrido persecuciones a lo largo de su historia. Desde tiempos remotos, las comunidades en Europa del Este, Central y Medio Oriente fueron atacadas y despojadas de sus tierras.</p>
+                        <p>A fines del siglo XIX, en la Rusia zarista, los pogromos organizados por el gobierno destruyeron aldeas judías en Ucrania, Moldavia, Lituania y Polonia, prohibiendo a los judíos poseer tierras o estudiar con otros niños. Sin embargo, la persecución alcanzó su punto más brutal con el Holocausto.</p>
+                        <p>Desde 1933, el régimen nazi en Alemania implementó un plan sistemático de exterminio, reclutando incluso a niños para su "solución final". Esta maquinaria infernal, documentada minuciosamente, asesinó a seis millones de judíos, gitanos y discapacitados en ghettos y campos como Auschwitz, liberado en 1945 con solo 7,000 sobrevivientes.</p> 
+                        <p>Más recientemente, el ataque del 7 de octubre de 2023 revivió el horror de estas atrocidades, afectando a familias y jóvenes en Israel. A pesar de todo, el pueblo judío mantuvo su fe y tradiciones sin recurrir a las armas, transmitiéndolas de generación en generación.</p>
 
-    <!-- Script -->
-    <script>
-        // Función para abrir y cerrar el menú con animación suave
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            const isOpen = menu.style.top === '0px';
-    
-            menu.style.transition = 'top 0.5s ease-in-out, opacity 0.3s ease';
-            menu.style.opacity = isOpen ? '1' : '0'; // Desvanecimiento inicial
-    
-            if (isOpen) {
-                menu.style.top = '-100%';
-                setTimeout(() => menu.style.opacity = '0', 300); // Fade out después de subir
-            } else {
-                menu.style.top = '0px';
-                setTimeout(() => menu.style.opacity = '1', 100); // Fade in después de bajar
+                    </div>
+                    <div class="galeria">
+                        <div class="imagen"><img src="./images/3.png" alt="Descripción" onclick="verImagen(this)"></div>
+                        <div class="imagen"><img src="./images/4.png" alt="Descripción" onclick="verImagen(this)"></div>
+                    </div>
+                </section>
+            </section>
+        </main>
+        
+        <div id="modalImagen" class="modal" onclick="cerrarImagen()">
+            <img id="imagenAmpliada" class="modal-contenido">
+        </div>
+        
+        <footer>
+            <p>© 2025 Monumento a la Shoá</p>
+        </footer>
+        
+        <script>
+            function toggleMenu() {
+                const menu = document.getElementById('menu');
+                menu.style.top = menu.style.top === '0px' ? '-100%' : '0px';
             }
-        }
-    </script>
-</body>
-</html>
+    
+            function verImagen(img) {
+                document.getElementById("imagenAmpliada").src = img.src;
+                document.getElementById("modalImagen").style.display = "flex";
+            }
+    
+            function cerrarImagen() {
+                document.getElementById("modalImagen").style.display = "none";
+            }
+        </script>
+        
+        <style>
+            .modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                align-items: center;
+                justify-content: center;
+            }
+    
+            .modal-contenido {
+                max-width: 90%;
+                max-height: 90%;
+                border-radius: 10px;
+            }
+        </style>
+    </body>
+    </html>

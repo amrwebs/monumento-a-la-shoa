@@ -17,7 +17,7 @@
             <li><a href="./index.html">Introducción</a></li>
             <li><a href="./historia.html">Historia</a></li>
             <li><a href="./monumentos.html">Monumentos</a></li>
-            <li><a href="./persecusion.html">Persecución</a></li> <!-- Corregido "persecusion" -->
+            <li><a href="./persecusion.html">Persecución</a></li> 
             <li><a href="./memoria.html">Memoria</a></li>
             <li><a href="./contacto.html">Contacto</a></li>
         </ul>
@@ -31,60 +31,65 @@
     <!-- Contenido principal -->
     <main>
         <section class="monumentos">
-            <div class="texto">
-                <h2>Monumentos</h2>
-                <p>A lo largo de la historia, diversos monumentos han sido testigos de la presencia judía y de su lucha por la memoria.</p>
-                <p>El Monumento a la Shoá en Villaguay destaca la Menorá como símbolo de la resiliencia judía, emergiendo entre piedras que representan las dificultades superadas. <p> 
-                <p>Este candelabro tiene una rica historia en otros monumentos: en el Arco de Tito en Roma se muestra su saqueo del Templo de Jerusalén; en Éfeso (Turquía), un dibujo de una Menorá en la biblioteca indica la presencia de una comunidad judía; en Albania, una Menorá aparece en una antigua columna; y en Curazao, una Menorá adorna la primera sinagoga de América.<p>
-                <p>En el Estado de Israel, la Menorá es parte central del escudo nacional y luce en el Parque de las Rosas frente al Parlamento (Kneset), con tallados en sus seis brazos que narran las penurias del exilio y el brazo central que refleja el regreso a la Tierra Prometida.<p> 
-                <p>En Villaguay, este monumento permite conocer y apreciar estos símbolos hebraicos, uniendo el pasado y el presente del pueblo judío.<p>
-            </div>
-        </section>
-
-        <!-- Carrusel -->
-        <section class="carrusel-section">
-            <div class="carrusel-container">
-                <div class="carrusel">
-                    <img src="./images/a.png" alt="Arco de Tito en Roma">
-                    <img src="./images/b.png" alt="Biblioteca de Éfeso, Turquía">
-                    <img src="./images/c.png" alt="Columna en Albania">
-                    <img src="./images/d.png" alt="Sinagoga en Curazao">
-                    <img src="./images/de.png" alt="Menorá en el Kneset">
-                    <img src="./images/fff.png" alt="Monumento 6">
-                    <img src="./images/ggg.png" alt="Monumento 7">
-                    <img src="./images/h.png" alt="Monumento 8">
-                </div>
-                <button class="carrusel-btn izquierda">❮</button>
-                <button class="carrusel-btn derecha">❯</button>
-                <div class="indicadores"></div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Pie de página -->
-    <footer>
-        <p>© 2025 Monumento a la Shoá</p>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        // Función para abrir y cerrar el menú con animación suave
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            const isOpen = menu.style.top === '0px';
-    
-            menu.style.transition = 'top 0.5s ease-in-out, opacity 0.3s ease';
-            menu.style.opacity = isOpen ? '1' : '0'; // Desvanecimiento inicial
-    
-            if (isOpen) {
-                menu.style.top = '-100%';
-                setTimeout(() => menu.style.opacity = '0', 300); // Fade out después de subir
-            } else {
-                menu.style.top = '0px';
-                setTimeout(() => menu.style.opacity = '1', 100); // Fade in después de bajar
+                <section class="contenedor-flex">
+                    <div class="texto">
+                        <h2>Monumentos</h2>
+                        <p>A lo largo de la historia, diversos monumentos han sido testigos de la presencia judía y de su lucha por la memoria.</p>
+                        <p>El Monumento a la Shoá en Villaguay destaca la Menorá como símbolo de la resiliencia judía, emergiendo entre piedras que representan las dificultades superadas. <p> 
+                        <p>Este candelabro tiene una rica historia en otros monumentos: en el Arco de Tito en Roma se muestra su saqueo del Templo de Jerusalén; en Éfeso (Turquía), un dibujo de una Menorá en la biblioteca indica la presencia de una comunidad judía; en Albania, una Menorá aparece en una antigua columna; y en Curazao, una Menorá adorna la primera sinagoga de América.<p>
+                        <p>En el Estado de Israel, la Menorá es parte central del escudo nacional y luce en el Parque de las Rosas frente al Parlamento (Kneset), con tallados en sus seis brazos que narran las penurias del exilio y el brazo central que refleja el regreso a la Tierra Prometida.<p> 
+                        <p>En Villaguay, este monumento permite conocer y apreciar estos símbolos hebraicos, uniendo el pasado y el presente del pueblo judío.<p>
+                    </div>
+                    <div class="galeria">
+                        <div class="imagen"><img src="./images/7.png" alt="Descripción" onclick="verImagen(this)"></div>
+                        <div class="imagen"><img src="./images/8.png" alt="Descripción" onclick="verImagen(this)"></div>
+                    </div>
+                </section>
+            </section>
+        </main>
+        
+        <div id="modalImagen" class="modal" onclick="cerrarImagen()">
+            <img id="imagenAmpliada" class="modal-contenido">
+        </div>
+        
+        <footer>
+            <p>© 2025 Monumento a la Shoá</p>
+        </footer>
+        
+        <script>
+            function toggleMenu() {
+                const menu = document.getElementById('menu');
+                menu.style.top = menu.style.top === '0px' ? '-100%' : '0px';
             }
-        }
-    </script>
-    <script src="carrusel.js"></script>
-</body>
-</html>
+    
+            function verImagen(img) {
+                document.getElementById("imagenAmpliada").src = img.src;
+                document.getElementById("modalImagen").style.display = "flex";
+            }
+    
+            function cerrarImagen() {
+                document.getElementById("modalImagen").style.display = "none";
+            }
+        </script>
+        
+        <style>
+            .modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                align-items: center;
+                justify-content: center;
+            }
+    
+            .modal-contenido {
+                max-width: 90%;
+                max-height: 90%;
+                border-radius: 10px;
+            }
+        </style>
+    </body>
+    </html>

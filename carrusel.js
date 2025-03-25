@@ -97,3 +97,34 @@ document.addEventListener("DOMContentLoaded", function () {
         iniciarAutoSlide();
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const imagenes = document.querySelectorAll(".imagen-click"); // Seleccionamos todas las imágenes con la clase imagen-click
+
+    imagenes.forEach(imagen => {
+        imagen.addEventListener("click", function () {
+            const srcImagen = this.querySelector("img").src; // Obtenemos el src de la imagen
+            mostrarImagenAmpliada(srcImagen); // Llamamos a la función para mostrar la imagen ampliada
+        });
+    });
+
+    function mostrarImagenAmpliada(src) {
+        const divAmpliada = document.createElement("div");
+        divAmpliada.classList.add("imagen-ampliada");
+        
+        const imgAmpliada = document.createElement("img");
+        imgAmpliada.src = src;
+        divAmpliada.appendChild(imgAmpliada);
+
+        const botonCerrar = document.createElement("button");
+        botonCerrar.textContent = "✖";
+        botonCerrar.classList.add("cerrar-imagen");
+        divAmpliada.appendChild(botonCerrar);
+
+        botonCerrar.addEventListener("click", function () {
+            divAmpliada.remove(); // Cerramos la imagen cuando se hace clic en el botón de cierre
+        });
+
+        document.body.appendChild(divAmpliada); // Añadimos el contenedor de la imagen ampliada al body
+    }
+});
