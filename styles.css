@@ -119,6 +119,36 @@ section {
     max-width: 600px;
 }
 
+/* Estilos para la sección de Memoria */
+.memoria {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título de la sección Memoria */
+.memoria h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #005f73;
+}
+
+/* Texto dentro de la sección Memoria */
+.memoria p {
+    font-size: 1.2em;
+    max-width: 750px;
+    margin: 0 auto; /* Centra el texto dentro del div */
+    line-height: 1.8;
+}
+
 /* Galería de imágenes */
 .galeria {
     width: 100%;
@@ -142,13 +172,6 @@ section {
     transform: scale(1.02);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .imagen img {
-        width: 80%;
-    }
-}
-
 /* Pie de página */
 footer {
     background-color: #005f73;
@@ -160,36 +183,55 @@ footer {
     box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para la imagen ampliada */
-.imagen-ampliada {
+/* Modal para imágenes */
+.modal {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
     align-items: center;
-    z-index: 1001;
+    justify-content: center;
 }
 
-.imagen-ampliada img {
+.modal-contenido {
     max-width: 90%;
     max-height: 90%;
-    object-fit: contain;
+    border-radius: 10px;
 }
 
-/* Estilo para cerrar la imagen */
-.cerrar-imagen {
+/* Estilos para el video con tamaño Instagram (1:1) */
+.video-container {
+    text-align: center;
+    margin: 40px auto;
+    max-width: 640px;
+    padding: 20px;
+    background: #e0f7fa;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.video-container h2 {
+    color: #0277bd;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.video-wrapper {
+    width: 100%;
+    position: relative;
+    padding-bottom: 100%; /* Relación 1:1 */
+    background: #000;
+    border-radius: 10px;
+}
+
+.video-wrapper iframe {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: rgba(255, 255, 255, 0.7);
-    color: #000;
-    border: none;
-    padding: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
 }

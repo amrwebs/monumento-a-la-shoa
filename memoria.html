@@ -6,12 +6,13 @@
     <title>Memoria - Monumento a la Shoá</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="./images/LOGO PAGINA.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> <!-- Fuente Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Botón para abrir el menú de navegación -->
+
+    <!-- Botón de navegación -->
     <button class="nav-toggle" onclick="toggleMenu()">☰</button>
-    
+
     <!-- Menú de navegación -->
     <nav id="menu">
         <ul>
@@ -23,129 +24,62 @@
             <li><a href="./contacto.html">Contacto</a></li>
         </ul>
     </nav>
-    
+
     <!-- Encabezado -->
     <header>
         <h1>Monumento a la Shoá</h1>
     </header>
-    
+
     <!-- Contenido principal -->
     <main>
         <section class="memoria">
-            <section class="contenedor-flex">
-                <div class="texto">
-                    <h2>Memoria</h2>
-                    <p>“Les enseñarás a tus hijos, y a los hijos de tus hijos…” dice la frase grabada detrás de
-                        la Menorá; y es precisamente el lema que cada ser judío lleva dentro de sí, como el
-                        compromiso de mantener su fe por generaciones y generaciones, aún en la peor
-                        adversidad.
-                        La creación del Estado de Israel fue proclamada el 14 de mayo de 1948 por quien
-                        fuera su impulsor y luego designado Primer Ministro Dr. David Ben Gurion. En
-                        homenaje a su intenso accionar, a sólo dos cuadras de aquí una calle lleva su
-                        nombre. Villaguay se complace en ser la primera y única ciudad de Argentina con su
-                        designación.
-                        A pesar de ser un país muy joven y pequeño, Israel ostenta orgulloso los trabajos
-                        realizados por sus hijos en beneficio de la Humanidad. Los avances en medicina,
-                        agricultura y tecnología en general hoy se utilizan en todo el mundo, prestando
-                        servicios de excelencia para resolver infinidad de situaciones. La aplicación del
-                        Waze, la memoria USB, mensajes de chat, riego por goteo, la píldora-cámara para
-                        estudiar el intestino, el captcha, los generadores de energía solar, procesadores Intel,
-                        impresoras digitales, los teléfonos celulares y la Cúpula de Hierro son algunos de los
-                        últimos inventos. Es poseedor de 5 Premios Nobel, y del total de premios instituidos el
-                        20 % son judíos que desarrollan su actividad en distintos países.</p>
-                </div>
-            </section>
+            <div class="texto">
+                <h2>Memoria</h2>
+                <p>“Les enseñarás a tus hijos, y a los hijos de tus hijos…” dice la frase grabada detrás de
+                    la Menorá; y es precisamente el lema que cada ser judío lleva dentro de sí, como el
+                    compromiso de mantener su fe por generaciones y generaciones, aún en la peor
+                    adversidad.
+                    La creación del Estado de Israel fue proclamada el 14 de mayo de 1948 por quien
+                    fuera su impulsor y luego designado Primer Ministro Dr. David Ben Gurion. En
+                    homenaje a su intenso accionar, a sólo dos cuadras de aquí una calle lleva su
+                    nombre. Villaguay se complace en ser la primera y única ciudad de Argentina con su
+                    designación.
+                    A pesar de ser un país muy joven y pequeño, Israel ostenta orgulloso los trabajos
+                    realizados por sus hijos en beneficio de la Humanidad. Los avances en medicina,
+                    agricultura y tecnología en general hoy se utilizan en todo el mundo, prestando
+                    servicios de excelencia para resolver infinidad de situaciones. La aplicación del
+                    Waze, la memoria USB, mensajes de chat, riego por goteo, la píldora-cámara para
+                    estudiar el intestino, el captcha, los generadores de energía solar, procesadores Intel,
+                    impresoras digitales, los teléfonos celulares y la Cúpula de Hierro son algunos de los
+                    últimos inventos. Es poseedor de 5 Premios Nobel, y del total de premios instituidos el
+                    20 % son judíos que desarrollan su actividad en distintos países.</p>
+            </div>
         </section>
 
-        <!-- Sección del Video -->
+        <!-- Sección del Video (Instagram 1:1) -->
         <section class="video-container">
-            <h2>Qué ver en Israel 🇮🇱 | 10 Lugares Imprescindibles</h2>
+            <h2>Qué ver en Israel 🇮🇱 |Lugares Imprescindibles</h2>
             <div class="video-wrapper">
-                <iframe width="560" height="315" src="./videos/Qué ver en Israel 🇮🇱 10 Lugares Imprescindibles.mp4" 
-                    title="Monumento a la Shoá" frameborder="0" allowfullscreen>
-                </iframe>
+                <iframe src="./videos/Videomemorias.mp4" title="Video sobre Israel" frameborder="0" allowfullscreen></iframe>
             </div>
         </section>
     </main>
 
-    <div id="modalImagen" class="modal" onclick="cerrarImagen()">
-        <img id="imagenAmpliada" class="modal-contenido">
-    </div>
-    
     <footer>
         <p>© 2025 Monumento a la Shoá</p>
     </footer>
-    
+
+    <!-- Script para el menú funcional -->
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
-            menu.style.top = menu.style.top === '0px' ? '-100%' : '0px';
-        }
-
-        function verImagen(img) {
-            document.getElementById("imagenAmpliada").src = img.src;
-            document.getElementById("modalImagen").style.display = "flex";
-        }
-
-        function cerrarImagen() {
-            document.getElementById("modalImagen").style.display = "none";
+            if (menu.style.top === '0px') {
+                menu.style.top = '-100%';
+            } else {
+                menu.style.top = '0px';
+            }
         }
     </script>
 
-    <style>
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-contenido {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
-
-        /* Estilos para el video */
-        .video-container {
-            text-align: center;
-            margin: 40px auto;
-            max-width: 800px;
-            padding: 20px;
-            background: #e0f7fa;
-            border-radius: 12px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .video-container h2 {
-            color: #0277bd;
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            background: #000;
-            border-radius: 10px;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-        }
-    </style>
 </body>
 </html>
